@@ -3,18 +3,22 @@
 <head>
     <title>Personal Website</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a55b92f878.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div id="header">
     <div class="container">
         <nav>
             <img src="assets/logo.png" class="logo">
-            <ul>
+            <ul id="sidemenu">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
                 <li><a href="#">Portfolio</a></li>
                 <li><a href="#">Contact Me</a></li>
+                <i class="fa-solid fa-times" onclick="closemenu()"></i>
             </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
             <p>Student</p>
@@ -63,7 +67,97 @@
         </div>
     </div>
 </div>
+<!-- -------------Portfolio------------ -->
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">Services</h1>
+        <div class="services-list">
+            <div>
+                <i class="fa-solid fa-suitcase"></i>
+                <h2>Service 1</h2>
+                <p>Description of service 1.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-suitcase"></i>
+                <h2>Service 2</h2>
+                <p>Description of service 2.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-suitcase"></i>
+                <h2>Service 3</h2>
+                <p>Description of service 3.</p>
+                <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- -------------Portfolio------------ -->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">Projects</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="assets/work-1.png">
+                <div class="layer">
+                    <h3>Project 1</h3>
+                    <p>I like to do lots of random things!</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="assets/work-2.png">
+                <div class="layer">
+                    <h3>Project 2</h3>
+                    <p>I like to do lots of random things!</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="assets/work-3.png">
+                <div class="layer">
+                    <h3>Project 3</h3>
+                    <p>I like to do lots of random things!</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+    </div>
+</div>
+<!-- -------------Contact Me------------ -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i> bmorrison0726@gmail.com</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=100005481916635"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/brett__morrison/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="www.linkedin.com/in/brett-m-508506135"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/brettmorrisonAO5ANNEX"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <a href="assets/resume.pdf" download class="btn btn2">Download Resume</a>
+            </div>
+            <div class="contact-right">
+                <form>
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="text" name="email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright © 2023 Brett Morrison <i class="fa-solid fa-spider"></i></p>
+    </div>
+</div>
     
+
+
 
 <script>
 
@@ -79,6 +173,19 @@
         }
         event.currentTarget.classList.add("active-link");
         document.getElementById(tabname).classList.add("active-tab")
+    }
+
+</script>
+
+<script>
+
+    var sidemenu = document.getElementById("sidemenu")
+
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
     }
 
 </script>
