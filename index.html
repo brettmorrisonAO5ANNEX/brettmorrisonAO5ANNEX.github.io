@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Website</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a55b92f878.js" crossorigin="anonymous"></script>
@@ -11,11 +14,11 @@
         <nav>
             <img src="assets/logo.png" class="logo">
             <ul id="sidemenu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact Me</a></li>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact Me</a></li>
                 <i class="fa-solid fa-times" onclick="closemenu()"></i>
             </ul>
             <i class="fa-solid fa-bars" onclick="openmenu()"></i>
@@ -134,7 +137,7 @@
                 <h1 class="sub-title">Contact Me</h1>
                 <p><i class="fa-solid fa-paper-plane"></i> bmorrison0726@gmail.com</p>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=100005481916635"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/channel/UCzeZEE9cs4RwEQfCz7ywLvw"><i class="fa-brands fa-youtube"></i></a>
                     <a href="https://www.instagram.com/brett__morrison/"><i class="fa-brands fa-instagram"></i></a>
                     <a href="www.linkedin.com/in/brett-m-508506135"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="https://github.com/brettmorrisonAO5ANNEX"><i class="fa-brands fa-github"></i></a>
@@ -142,12 +145,13 @@
                 <a href="assets/resume.pdf" download class="btn btn2">Download Resume</a>
             </div>
             <div class="contact-right">
-                <form>
+                <form name="submit-to-google-sheet">
                     <input type="text" name="Name" placeholder="Your Name" required>
-                    <input type="text" name="email" placeholder="Your Email" required>
+                    <input type="text" name="Email" placeholder="Your Email" required>
                     <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
+                <span id="msg"></span>
             </div>
         </div>
     </div>
@@ -189,5 +193,24 @@
     }
 
 </script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxZT2N1SIh8q0pbv3Z9qTIwpRffhcVOKxODOF6Ga2SEIvp4rfZecyH5wgBb2Uux6k9Sng/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            }, 5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 </body>
 </html>
